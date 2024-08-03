@@ -145,7 +145,6 @@ export default {
                     );
                     defaults.push(portion.default);
                 }
-
             });
 
             return {
@@ -185,14 +184,7 @@ export default {
             if (!parametersFromSliderBtn.disabled) {
                 let widths = this.widths;
 
-                // #TODO if this part is not used please remove this.
-                // let widths = new Array(this.tags.length).fill(100/this.tags.length);
-                // const SetWidths = new Array(this.tags.length).fill(100/this.tags.length);
-                // let tags = this.tags;
-                // const setTags = this.tags;
 
-
-                // onSliderSelect()
                 document.body.style.cursor = 'ew-resize';
                 const startDragX = e.pageX;
                 const sliderWidth = document.getElementById('tag-slider').offsetWidth;
@@ -200,7 +192,6 @@ export default {
                 const resize = (e) => {
                     e.preventDefault();
                     const endDragX = e.touches ? e.touches[0].pageX : e.pageX;
-                    // const endDragX = e.pageX;
 
                     const distanceMoved = endDragX - startDragX;
                     const maxPercent = widths[parametersFromSliderBtn.index] + widths[parametersFromSliderBtn.index + 1];
@@ -231,30 +222,6 @@ export default {
                     _widths[nextSectionIndex] = nextSectionWidth;
 
 
-                    // if (self.tags.length > 2) {
-                    //     if (_widths[parametersFromSliderBtn.index] === 0) {
-                    //         _widths[nextSectionWidth] = maxPercent;
-                    //         _widths.splice(parametersFromSliderBtn.index, 1);
-                    //         // bu qalib
-                    //         // setTags();
-                    //         self.tags = self.tags.filter((t, i) => {
-                    //             return i !== parametersFromSliderBtn.index;
-                    //         });
-                    //         removeEventListener();
-                    //
-                    //     }
-                    //     if (_widths[nextSectionIndex] === 0) {
-                    //         _widths[parametersFromSliderBtn.index] = maxPercent;
-                    //         _widths.splice(nextSectionIndex, 1);
-                    //         // bu qalib
-                    //         // setTags();
-                    //         self.tags = self.tags.filter((t, i) => {
-                    //             return i !== nextSectionIndex;
-                    //         });
-                    //         removeEventListener();
-                    //     }
-                    // }
-
                     this.widths = _widths;
                 };
 
@@ -278,8 +245,6 @@ export default {
 
                 this.color = parametersFromSliderBtn.tag.color;
             }
-
-
         },
         resetToDefault() {
             this.widths = this.sliderData.defaults;
@@ -299,7 +264,6 @@ export default {
 
 </script>
 <style lang="scss" scoped>
-
 .multi-thumb-slider {
   .tag:first-of-type {
     border-radius: 30px 0 0 30px;
@@ -423,5 +387,4 @@ export default {
     font-family: sans-serif;
   }
 }
-
 </style>
